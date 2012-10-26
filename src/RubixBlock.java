@@ -44,4 +44,18 @@ public class RubixBlock {
 		glEnd();
 		glEndList();
 	}
+	/**
+	 * Draws the rubix block to the currently bound OpenGL Framebuffer.
+	 */
+	public void draw() {
+		// TODO: Disable possibly malignant states (i.e.: lighting).
+		// TODO: Add initialisation check.
+		glCallList(displayList);
+	}
+	/**
+	 * Frees all the resources that the rubix block was using.
+	 */
+	public void release() {
+		glDeleteLists(1, displayList);
+	}
 }

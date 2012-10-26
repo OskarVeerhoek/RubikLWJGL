@@ -18,16 +18,14 @@ public class Main {
 		}
 		RubixCamera camera = new RubixCamera();
 		camera.initialise();
+		RubixBlock block = new RubixBlock(RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW);
+		block.initialise();
 		boolean running = true;
 		while (running) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			camera.translate();
 			camera.handleInput();
-			glBegin(GL_TRIANGLES);
-			glVertex2f(-1, -1);
-			glVertex2f( 1, -1);
-			glVertex2f( 1,  1);
-			glEnd();
+			block.draw();
 			running = (Display.isCloseRequested()) ? false : running;
 			if (Keyboard.isKeyDown(Keyboard.KEY_RETURN)) {
 				running = false;
