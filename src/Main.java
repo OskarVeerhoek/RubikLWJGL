@@ -16,16 +16,13 @@ public class Main {
 			Display.destroy();
 			System.exit(1);
 		}
+		RubixCamera camera = new RubixCamera();
+		camera.initialise();
 		boolean running = true;
-		Vector3f rotation = new Vector3f(0, 0, 0);
-		float zoom = 0;
 		while (running) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glLoadIdentity();
-			glTranslatef(0, 0, -zoom);
-			glRotatef(-rotation.x, 1, 0, 0);
-			glRotatef(-rotation.y, 0, 1, 0);
-			glRotatef(-rotation.z, 0, 0, 1);
+			camera.translate();
+			camera.handleInput();
 			glBegin(GL_TRIANGLES);
 			glVertex2f(-1, -1);
 			glVertex2f( 1, -1);

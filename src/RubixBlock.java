@@ -1,3 +1,10 @@
+import org.lwjgl.*;
+import org.lwjgl.opengl.*;
+import org.lwjgl.input.*;
+import org.lwjgl.util.vector.*;
+
+import static org.lwjgl.opengl.GL11.*;
+
 /**
  * A block of a rubix cube.
  * @author Oskar Veerhoek
@@ -12,7 +19,9 @@ public class RubixBlock {
 			this.g = green;
 		}
 	}
+	// TODO: Encapsulate variables.
 	public Side leftSide, rightSide, topSide, bottomSide, frontSide, backSide;
+	private int displayList;
 	public RubixBlock(Side leftSide, Side rightSide, Side topSide, Side bottomSide, Side frontSide, Side backSide) {
 		this.leftSide = leftSide;
 		this.rightSide = rightSide;
@@ -20,5 +29,19 @@ public class RubixBlock {
 		this.bottomSide = bottomSide;
 		this.frontSide = frontSide;
 		this.backSide = backSide;
+	}
+	/**
+	 * Performs initialisation, for example: creates rendering objects for OpenGL.
+	 */
+	public void initialise() {
+		displayList = glGenLists(1);
+		glNewList(displayList, GL_COMPILE);
+		glBegin(GL_QUADS);
+		glVertex2f(-1, -1);
+		glVertex2f( 1, -1);
+		glVertex2f( 1,  1);
+		glVertex2f(-1,  1);
+		glEnd();
+		glEndList();
 	}
 }
