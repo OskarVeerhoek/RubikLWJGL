@@ -1,0 +1,52 @@
+<project name="AntTesting" basedir="." default="run">
+	<property name="src.dir"     value="src"/>
+	<property name="lib.dir"	 value="lib"/>
+    <property name="build.dir"   value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="jar.dir"     value="${build.dir}/jar"/>
+	<property name="main-class"  value="Main"/>
+	<path id="build.class.path">
+		<fileset dir="lib">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	<path id="classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar"/>
+	</path>
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>
+	<target name="compile" depends="clean">
+		<mkdir dir="${classes.dir}"/>
+		<javac includeantruntime="false" srcdir="src" destdir="${classes.dir}" classpathref="classpath"/>
+	</target>
+	<target name="jar" depends="compile">
+		<mkdir dir="${jar.dir}"/>
+		<copy todir="${jar.dir}">
+			<fileset dir="${lib.dir}">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+		<pathconvert property="mf.classpath" pathsep=" ">
+    		<path refid="build.class.path" />
+    		<flattenmapper />
+		</pathconvert>
+		<tstamp/>
+		<jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+			<manifest>
+ 			 	<attribute name="Built-Date" value="${TODAY}"/>
+ 			 	<attribute name="Class-Path" value="${mf.classpath}" />
+				<attribute name = "Main-Class" value = "${main-class}"/>
+			</manifest>
+		</jar>
+	</target>
+	<target name="run" depends="jar">
+		<java fork="true" classname="${main-class}">
+			<sysproperty key="java.library.path" value="${lib.dir}"/>
+			<classpath>
+				<path refid="classpath"/>
+				<path location="${jar.dir}/${ant.project.name}.jar"/>
+			</classpath>
+		</java>
+	</target>
+</project>
