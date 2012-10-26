@@ -17,7 +17,7 @@ public class RubixCamera {
 	private float zoom;
 	public RubixCamera() {
 		this.rotation = new Vector3f(0, 0, 0);
-		this.zoom = 7;
+		this.zoom = 30;
 	}
 	public void handleInput() {
 		boolean left = Keyboard.isKeyDown(Keyboard.KEY_LEFT);
@@ -39,6 +39,7 @@ public class RubixCamera {
 	 * Call this method to apply the camera settings to the current OpenGL projection matrix.
 	 */
 	public void initialise() {
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_CULL_FACE);
 		glCullFace(GL_BACK);
