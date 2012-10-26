@@ -36,13 +36,61 @@ public class RubixBlock {
 	public void initialise() {
 		displayList = glGenLists(1);
 		glNewList(displayList, GL_COMPILE);
+		// Left Side
+		glColor3f(leftSide.r, leftSide.g, leftSide.b);
 		glBegin(GL_QUADS);
-		glColor3f(frontSide.r, frontSide.g, frontSide.b);
-		glVertex2f(-1, -1);
-		glVertex2f( 1, -1);
-		glVertex2f( 1,  1);
-		glVertex2f(-1,  1);
+		glVertex3f(-1, 1, -1);
+		glVertex3f(-1, -1, -1);
+		glVertex3f(-1, -1, 1);
+		glVertex3f(-1, 1, 1);
 		glEnd();
+		// Right Side
+		glColor3f(rightSide.r, rightSide.g, rightSide.b);
+		glBegin(GL_QUADS);
+		glVertex3f(1, 1, -1);
+		glVertex3f(1, 1, 1);
+		glVertex3f(1, -1, 1);
+		glVertex3f(1, -1, -1);
+		glEnd();
+		// Front Side
+		glColor3f(frontSide.r, frontSide.g, frontSide.b);
+		glBegin(GL_QUADS);
+		glVertex3f(-1, -1, 1);
+		glVertex3f(1, -1, 1);
+		glVertex3f(1, 1, 1);
+		glVertex3f(-1, 1, 1);
+		glEnd();
+		// Back Side
+		glColor3f(backSide.r, backSide.g, backSide.b);
+		glBegin(GL_QUADS);
+		glVertex3f(-1, -1, -1);
+		glVertex3f(-1, 1, -1);
+		glVertex3f(1, 1, -1);
+		glVertex3f(1, -1, -1);
+		glEnd();
+		// Top Side
+		glColor3f(topSide.r, topSide.g, topSide.b);
+		glBegin(GL_QUADS);
+		glVertex3f(-1, 1, 1);
+		glVertex3f(1, 1, 1);
+		glVertex3f(1, 1, -1);
+		glVertex3f(-1, 1, -1);
+		glEnd();
+		// Bottom Side
+		glColor3f(bottomSide.r, bottomSide.g, bottomSide.b);
+		glBegin(GL_QUADS);
+		glVertex3f(-1, -1, 1);
+		glVertex3f(-1, -1, -1);
+		glVertex3f(1, -1, -1);
+		glVertex3f(1, -1, 1);
+		glEnd();
+		//glBegin(GL_QUADS);
+		//glColor3f(frontSide.r, frontSide.g, frontSide.b);
+		//glVertex2f(-1, -1);
+		//glVertex2f( 1, -1);
+		//glVertex2f( 1,  1);
+		//glVertex2f(-1,  1);
+		//glEnd();
 		glEndList();
 	}
 	/**
