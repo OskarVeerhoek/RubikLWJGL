@@ -13,10 +13,10 @@ public class RubixBlock {
 	public static enum Side { 
 		WHITE(1, 1, 1), YELLOW(1, 1, 0), BLUE(0, 0, 1), GREEN(0, 1, 0), RED(1, 0, 0), ORANGE(1, 0.5f, 0);
 		public final float r, g, b;
-		Side(float red, float blue, float green) {
+		Side(float red, float green, float blue) {
 			this.r = red;
-			this.b = blue;
 			this.g = green;
+			this.b = blue;
 		}
 	}
 	// TODO: Encapsulate variables.
@@ -37,6 +37,7 @@ public class RubixBlock {
 		displayList = glGenLists(1);
 		glNewList(displayList, GL_COMPILE);
 		glBegin(GL_QUADS);
+		glColor3f(frontSide.r, frontSide.g, frontSide.b);
 		glVertex2f(-1, -1);
 		glVertex2f( 1, -1);
 		glVertex2f( 1,  1);

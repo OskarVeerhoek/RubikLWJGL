@@ -18,7 +18,7 @@ public class Main {
 		}
 		RubixCamera camera = new RubixCamera();
 		camera.initialise();
-		RubixBlock block = new RubixBlock(RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW);
+		RubixBlock block = new RubixBlock(RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW,RubixBlock.Side.YELLOW,RubixBlock.Side.RED);
 		block.initialise();
 		boolean running = true;
 		while (running) {
