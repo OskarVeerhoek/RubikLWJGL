@@ -1,3 +1,5 @@
+package com.oskar.rubik;
+
 import static org.lwjgl.opengl.GL11.*;
 
 /**

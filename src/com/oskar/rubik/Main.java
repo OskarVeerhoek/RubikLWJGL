@@ -1,3 +1,5 @@
+package com.oskar.rubik;
+
 import org.lwjgl.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.input.*;

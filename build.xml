@@ -4,7 +4,7 @@
     <property name="build.dir"   value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
-	<property name="main-class"  value="Main"/>
+	<property name="main-class"  value="com.oskar.rubik.Main"/>
 	<path id="build.class.path">
 		<fileset dir="lib">
 			<include name="**/*.jar"/>
