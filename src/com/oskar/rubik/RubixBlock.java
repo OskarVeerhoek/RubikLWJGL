@@ -92,13 +92,6 @@ public class RubixBlock {
 		glVertex3f(1, -1, -1);
 		glVertex3f(1, -1, 1);
 		glEnd();
-		//glBegin(GL_QUADS);
-		//glColor3f(frontSide.r, frontSide.g, frontSide.b);
-		//glVertex2f(-1, -1);
-		//glVertex2f( 1, -1);
-		//glVertex2f( 1,  1);
-		//glVertex2f(-1,  1);
-		//glEnd();
 		glEndList();
 	}
 	/**
