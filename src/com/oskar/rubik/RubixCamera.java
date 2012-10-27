@@ -31,7 +31,6 @@ public class RubixCamera {
 		boolean zoomOut = Keyboard.isKeyDown(Keyboard.KEY_Z);
 		boolean rollRight = Keyboard.isKeyDown(Keyboard.KEY_COMMA);
 		boolean rollLeft = Keyboard.isKeyDown(Keyboard.KEY_PERIOD);
-		System.out.println(zoomIn + ", " + zoomOut);
 		zoom += zoomIn  ?  0.3f : 0;
 		zoom += zoomOut ? -0.3f : 0;
 		Vector3f movement = new Vector3f();
