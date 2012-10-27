@@ -33,17 +33,17 @@ public class Main {
 		}
 		RubixCamera camera = new RubixCamera();
 		camera.initialise();
-		//RubixCube cube = new RubixCube(3);
-		//cube.initialise();
-		RubixBlock block = new RubixBlock(WHITE, YELLOW, BLUE, GREEN, RED, ORANGE);
-		block.initialise();
+		RubixCube cube = new RubixCube(3);
+		cube.initialise();
+		//RubixBlock block = new RubixBlock(WHITE, YELLOW, BLUE, GREEN, RED, ORANGE);
+		//block.initialise();
 		boolean running = true;
 		while (running) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			camera.translate();
 			camera.handleInput();
-			//cube.draw();
-			block.draw();
+			cube.draw();
+			//block.draw();
 			running = (Display.isCloseRequested()) ? false : running;
 			if (Keyboard.isKeyDown(Keyboard.KEY_RETURN)) {
 				running = false;

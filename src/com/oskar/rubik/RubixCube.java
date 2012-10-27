@@ -1,6 +1,7 @@
 package com.oskar.rubik;
 
 import static org.lwjgl.opengl.GL11.*;
+import static com.oskar.rubik.RubixBlock.Side.*;
 
 /**
  * A rubix cube.
@@ -19,7 +20,7 @@ public final class RubixCube {
 		for (int x = 0; x < size; x++) 
 			for (int y = 0; y < size; y++)
 				for (int z = 0; z < size; z++) 
-					blocks[x][y][z] = new RubixBlock(RubixBlock.Side.WHITE,RubixBlock.Side.YELLOW,RubixBlock.Side.BLUE,RubixBlock.Side.GREEN,RubixBlock.Side.RED,RubixBlock.Side.ORANGE);
+					blocks[x][y][z] = new RubixBlock(WHITE, YELLOW, BLUE, GREEN, RED, ORANGE);
 	}
 	public void initialise() {
 		displayList = glGenLists(1);
@@ -28,7 +29,7 @@ public final class RubixCube {
 			for (int y = 0; y < size; y++) {
 				for (int z = 0; z < size; z++) {
 					glPushMatrix();
-					glTranslatef(5*(x-1)/2, 5*(y-1)/2, 5*(z-1)/2);
+					glTranslatef(5*(x-1)/1.5f, 5*(y-1)/1.5f, 5*(z-1)/1.5f);
 					blocks[x][y][z].drawInImmediateMode();
 					glPopMatrix();
 				}
