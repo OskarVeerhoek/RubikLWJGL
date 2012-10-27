@@ -18,9 +18,9 @@ public class RubixCamera {
 	 * The translation along the z-axis.
 	 */
 	private float zoom;
-	public RubixCamera() {
+	public RubixCamera(float zoom) {
 		this.rotation = new Vector3f(0, 0, 0);
-		this.zoom = 18;
+		this.zoom = zoom;
 	}
 	public void handleInput() {
 		boolean left = Keyboard.isKeyDown(Keyboard.KEY_LEFT);
