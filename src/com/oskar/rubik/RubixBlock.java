@@ -41,6 +41,7 @@ public class RubixBlock {
 		// Left Side
 		glColor3f(leftSide.r, leftSide.g, leftSide.b);
 		glBegin(GL_QUADS);
+		glNormal3f(-1, 0, 0);
 		glVertex3f(-1, 1, -1);
 		glVertex3f(-1, -1, -1);
 		glVertex3f(-1, -1, 1);
@@ -49,6 +50,7 @@ public class RubixBlock {
 		// Right Side
 		glColor3f(rightSide.r, rightSide.g, rightSide.b);
 		glBegin(GL_QUADS);
+		glNormal3f(1, 0, 0);
 		glVertex3f(1, 1, -1);
 		glVertex3f(1, 1, 1);
 		glVertex3f(1, -1, 1);
@@ -57,6 +59,7 @@ public class RubixBlock {
 		// Front Side
 		glColor3f(frontSide.r, frontSide.g, frontSide.b);
 		glBegin(GL_QUADS);
+		glNormal3f(0, 0, 1);
 		glVertex3f(-1, -1, 1);
 		glVertex3f(1, -1, 1);
 		glVertex3f(1, 1, 1);
@@ -65,6 +68,7 @@ public class RubixBlock {
 		// Back Side
 		glColor3f(backSide.r, backSide.g, backSide.b);
 		glBegin(GL_QUADS);
+		glNormal3f(0, 0, -1);
 		glVertex3f(-1, -1, -1);
 		glVertex3f(-1, 1, -1);
 		glVertex3f(1, 1, -1);
@@ -73,6 +77,7 @@ public class RubixBlock {
 		// Top Side
 		glColor3f(topSide.r, topSide.g, topSide.b);
 		glBegin(GL_QUADS);
+		glNormal3f(0, 1, 0);
 		glVertex3f(-1, 1, 1);
 		glVertex3f(1, 1, 1);
 		glVertex3f(1, 1, -1);
@@ -81,6 +86,7 @@ public class RubixBlock {
 		// Bottom Side
 		glColor3f(bottomSide.r, bottomSide.g, bottomSide.b);
 		glBegin(GL_QUADS);
+		glNormal3f(0, -1, 0);
 		glVertex3f(-1, -1, 1);
 		glVertex3f(-1, -1, -1);
 		glVertex3f(1, -1, -1);
