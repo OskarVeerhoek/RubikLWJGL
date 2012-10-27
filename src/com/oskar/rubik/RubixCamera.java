@@ -6,6 +6,7 @@ import org.lwjgl.input.*;
 import org.lwjgl.util.vector.*;
 
 import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.ARBDepthClamp.*;
 import static org.lwjgl.util.glu.GLU.gluPerspective;
 
 public class RubixCamera {
@@ -28,6 +29,8 @@ public class RubixCamera {
 		boolean down = Keyboard.isKeyDown(Keyboard.KEY_DOWN);
 		boolean zoomIn = Keyboard.isKeyDown(Keyboard.KEY_Q);
 		boolean zoomOut = Keyboard.isKeyDown(Keyboard.KEY_Z);
+		boolean rollRight = Keyboard.isKeyDown(Keyboard.KEY_COMMA);
+		boolean rollLeft = Keyboard.isKeyDown(Keyboard.KEY_PERIOD);
 		System.out.println(zoomIn + ", " + zoomOut);
 		zoom += zoomIn  ?  0.3f : 0;
 		zoom += zoomOut ? -0.3f : 0;
@@ -36,6 +39,8 @@ public class RubixCamera {
 		movement.x += down	? -1 : 0;
 		movement.y += right ?  1 : 0;
 		movement.y += left  ? -1 : 0;
+		movement.z += rollRight ? 1 : 0;
+		movement.z += rollLeft ? -1 : 0;
 		if (movement.length() != 0) {
 			movement.normalise();
 		}
@@ -45,7 +50,9 @@ public class RubixCamera {
 	 * Call this method to apply the camera settings to the current OpenGL projection matrix.
 	 */
 	public void initialise() {
-		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		if (GLContext.getCapabilities().GL_ARB_depth_clamp) {
+            glEnable(GL_DEPTH_CLAMP);
+        }	
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_CULL_FACE);
 		glCullFace(GL_BACK);
@@ -53,8 +60,7 @@ public class RubixCamera {
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		// TODO: Add configuration for fov.
-		// TODO: Tweak zNear and zFar.
-		gluPerspective(40, (float) Display.getWidth() / (float) Display.getHeight(), 0.3f,100f);
+		gluPerspective(40, (float) Display.getWidth() / (float) Display.getHeight(), 4.5f, 70);
 		glPopAttrib();
 	}
 	/**
