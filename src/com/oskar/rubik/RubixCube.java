@@ -29,7 +29,7 @@ public final class RubixCube {
 			for (int y = 0; y < size; y++) {
 				for (int z = 0; z < size; z++) {
 					glPushMatrix();
-					glTranslatef(5*(x-1)/1.5f, 5*(y-1)/1.5f, 5*(z-1)/1.5f);
+					glTranslatef(2.2f*(x-1), 2.2f*(y-1), 2.2f*(z-1));
 					blocks[x][y][z].drawInImmediateMode();
 					glPopMatrix();
 				}

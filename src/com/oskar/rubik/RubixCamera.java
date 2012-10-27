@@ -19,7 +19,7 @@ public class RubixCamera {
 	private float zoom;
 	public RubixCamera() {
 		this.rotation = new Vector3f(0, 0, 0);
-		this.zoom = 07;
+		this.zoom = 18;
 	}
 	public void handleInput() {
 		boolean left = Keyboard.isKeyDown(Keyboard.KEY_LEFT);
@@ -28,10 +28,10 @@ public class RubixCamera {
 		boolean down = Keyboard.isKeyDown(Keyboard.KEY_DOWN);
 		Vector3f movement = new Vector3f();
 		// TODO: Place x before y.
-		movement.y += right ?  1 : 0;
-		movement.y += left  ? -1 : 0;
 		movement.x += up 	?  1 : 0;
 		movement.x += down	? -1 : 0;
+		movement.y += right ?  1 : 0;
+		movement.y += left  ? -1 : 0;
 		if (movement.length() != 0) {
 			movement.normalise();
 		}
