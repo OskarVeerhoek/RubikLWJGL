@@ -27,7 +27,6 @@ public class RubixCamera {
 		boolean up = Keyboard.isKeyDown(Keyboard.KEY_UP);
 		boolean down = Keyboard.isKeyDown(Keyboard.KEY_DOWN);
 		Vector3f movement = new Vector3f();
-		// TODO: Place x before y.
 		movement.x += up 	?  1 : 0;
 		movement.x += down	? -1 : 0;
 		movement.y += right ?  1 : 0;
