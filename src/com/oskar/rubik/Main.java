@@ -7,6 +7,7 @@ import org.lwjgl.util.vector.*;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.util.glu.GLU.gluErrorString;
+import static com.oskar.rubik.RubixBlock.Side.*;
 
 public class Main {
 	public static void main(String[] args) throws LWJGLException {
@@ -34,7 +35,7 @@ public class Main {
 		camera.initialise();
 		//RubixCube cube = new RubixCube(3);
 		//cube.initialise();
-		RubixBlock block = new RubixBlock(RubixBlock.Side.WHITE,RubixBlock.Side.YELLOW,RubixBlock.Side.BLUE,RubixBlock.Side.GREEN,RubixBlock.Side.RED,RubixBlock.Side.ORANGE);
+		RubixBlock block = new RubixBlock(WHITE, YELLOW, BLUE, GREEN, RED, ORANGE);
 		block.initialise();
 		boolean running = true;
 		while (running) {
