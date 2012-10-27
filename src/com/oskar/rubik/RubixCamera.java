@@ -26,6 +26,11 @@ public class RubixCamera {
 		boolean right = Keyboard.isKeyDown(Keyboard.KEY_RIGHT);
 		boolean up = Keyboard.isKeyDown(Keyboard.KEY_UP);
 		boolean down = Keyboard.isKeyDown(Keyboard.KEY_DOWN);
+		boolean zoomIn = Keyboard.isKeyDown(Keyboard.KEY_Q);
+		boolean zoomOut = Keyboard.isKeyDown(Keyboard.KEY_Z);
+		System.out.println(zoomIn + ", " + zoomOut);
+		zoom += zoomIn  ?  0.3f : 0;
+		zoom += zoomOut ? -0.3f : 0;
 		Vector3f movement = new Vector3f();
 		movement.x += up 	?  1 : 0;
 		movement.x += down	? -1 : 0;
