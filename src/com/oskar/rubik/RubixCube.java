@@ -25,6 +25,7 @@ public final class RubixCube {
 	public void initialise() {
 		displayList = glGenLists(1);
 		glNewList(displayList, GL_COMPILE);
+		// TODO: Remove inside blocks and add lines between them.
 		for (int x = 0; x < size; x++) {
 			for (int y = 0; y < size; y++) {
 				for (int z = 0; z < size; z++) {

@@ -50,9 +50,9 @@ public class RubixCamera {
 	 * Call this method to apply the camera settings to the current OpenGL projection matrix.
 	 */
 	public void initialise() {
-		if (GLContext.getCapabilities().GL_ARB_depth_clamp) {
-            glEnable(GL_DEPTH_CLAMP);
-        }	
+	//	if (GLContext.getCapabilities().GL_ARB_depth_clamp) {
+    //        glEnable(GL_DEPTH_CLAMP);
+    //    }	
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_CULL_FACE);
 		glCullFace(GL_BACK);
