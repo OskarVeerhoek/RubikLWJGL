@@ -4,6 +4,7 @@ import org.lwjgl.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.input.*;
 import org.lwjgl.util.vector.*;
+import java.nio.FloatBuffer;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.ARBDepthClamp.*;

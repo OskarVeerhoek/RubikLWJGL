@@ -17,7 +17,6 @@ public class Main {
 			Display.setDisplayMode(new DisplayMode(640, 480));
 		} catch (LWJGLException e) {
 			e.printStackTrace();
-			Display.destroy();
 			System.exit(1);
 		}
 		try {
@@ -32,36 +31,24 @@ public class Main {
 				System.exit(1);
 			}
 		}
-		RubixCamera camera = new RubixCamera(5); // 18
+		RubixCamera camera = new RubixCamera(18);
 		camera.initialise();
 		RubixCube cube = new RubixCube(3);
 		cube.initialise();
-		glEnable(GL_LIGHTING);
-		glEnable(GL_COLOR_MATERIAL);
-		glColorMaterial(GL_FRONT, GL_DIFFUSE);
-		glEnable(GL_LIGHT0);
-		FloatBuffer lightPosition = BufferUtils.createFloatBuffer(4);
-		lightPosition.put(0).put(0).put(-10).put(1);
-		lightPosition.flip();
-		glLight(GL_LIGHT0, GL_POSITION, lightPosition);
-		System.out.println(gluErrorString(glGetError()));
-		RubixBlock block = new RubixBlock(WHITE, YELLOW, BLUE, GREEN, RED, ORANGE);
-		block.initialise();
 		boolean running = true;
 		while (running) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glLight(GL_LIGHT0, GL_POSITION, lightPosition);
 			camera.translate();
 			camera.handleInput();
 			cube.draw();
-			block.draw();
 			running = (Display.isCloseRequested()) ? false : running;
 			if (Keyboard.isKeyDown(Keyboard.KEY_RETURN)) {
 				running = false;
 			}
 			Display.update();
-			Display.sync(120);
+			Display.sync(60);
 		}	
+		System.out.println(gluErrorString(glGetError()));
 		Display.destroy();
 	}
 }
