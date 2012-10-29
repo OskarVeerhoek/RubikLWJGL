@@ -12,7 +12,7 @@ import static com.oskar.rubik.RubixBlock.Side.*;
 
 public class Main {
 	public static void main(String[] args) throws LWJGLException {
-		Display.setTitle("A Rubix Cube in LWJGL - Oskar");
+		Display.setTitle("A Rubik's Cube in LWJGL");
 		try {
 			Display.setDisplayMode(new DisplayMode(640, 480));
 		} catch (LWJGLException e) {
@@ -41,10 +41,7 @@ public class Main {
 			camera.translate();
 			camera.handleInput();
 			cube.draw();
-			running = (Display.isCloseRequested()) ? false : running;
-			if (Keyboard.isKeyDown(Keyboard.KEY_RETURN)) {
-				running = false;
-			}
+			running = Display.isCloseRequested() || Keyboard.isKeyDown(Keyboard.KEY_RETURN) ? false : running;
 			Display.update();
 			Display.sync(60);
 		}	
