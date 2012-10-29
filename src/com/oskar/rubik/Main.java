@@ -10,6 +10,14 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.util.glu.GLU.gluErrorString;
 import static com.oskar.rubik.RubixBlock.Side.*;
 
+/**
+ * Shows a Rubik's cube that you can rotate but not yet modify.
+ *  ARROW KEYS, COMMA, PERIOD = rotate
+ *  X = zoom in
+ *  Q = zoom out
+ *  RETURN = terminate window
+ * @author Oskar Veerhoek
+ */
 public class Main {
 	public static void main(String[] args) throws LWJGLException {
 		Display.setTitle("A Rubik's Cube in LWJGL");
