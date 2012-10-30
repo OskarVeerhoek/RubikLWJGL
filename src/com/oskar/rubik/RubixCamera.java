@@ -34,6 +34,7 @@ public class RubixCamera {
 		boolean rollLeft = Keyboard.isKeyDown(Keyboard.KEY_PERIOD);
 		zoom += zoomIn  ?  0.3f : 0;
 		zoom += zoomOut ? -0.3f : 0;
+		zoom = zoom < 10 ? 10 : (zoom > 55 ? 55 : zoom);
 		Vector3f movement = new Vector3f();
 		movement.x += up 	?  1 : 0;
 		movement.x += down	? -1 : 0;
@@ -60,7 +61,7 @@ public class RubixCamera {
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		// TODO: Add configuration for fov.
-		gluPerspective(40, (float) Display.getWidth() / (float) Display.getHeight(), 4.5f, 70);
+		gluPerspective(40, (float) Display.getWidth() / (float) Display.getHeight(), 4.3f, 70);
 		glPopAttrib();
 	}
 	/**
