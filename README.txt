@@ -1,0 +1,1 @@
+You can build this project using Ant. You can also open the project with an IDE if it supports Ant projects.
